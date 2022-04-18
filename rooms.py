@@ -46,7 +46,16 @@ def p_m_idx(p, m, i):
 
     return idx + i
 
-# iteration of the same meeting can't be at the same time
+# iterations of the same meeting can't be at the same time
+for m in range(len(meetings)):
+    for t in range(nTimes):
+        for i in meetings[m]:
+            sol.add(Implies(Or([m_r_t[m_r_t_idx(m, i, r, t)] for r in range(len(rooms))]), And([Not()])))
+
 # a person can have only one iteration of a meeting
+
+# a person needs to attend one iteration of each meeting they want
+
 # a person can't be in different rooms at the same time
+
 # room capacity constraint
